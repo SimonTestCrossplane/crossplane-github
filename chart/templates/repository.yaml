@@ -11,3 +11,4 @@ spec:
     autoInit: true
     visibility: public
     deleteBranchOnMerge: true
+    allowUpdateBranch: true
