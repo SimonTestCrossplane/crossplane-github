@@ -10,3 +10,4 @@ spec:
   forProvider:
     autoInit: true
     visibility: public
+    deleteBranchOnMerge: true
