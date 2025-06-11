@@ -1,4 +1,3 @@
----
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -9,7 +8,7 @@ metadata:
 spec:
   project: production
   source:
-    repoURL: https://github.com/vfarcic/crossplane-github
+    repoURL: https://github.com/SimonTestCrossplane/crossplane-github
     targetRevision: HEAD
     path: infra
   destination:
