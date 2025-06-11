@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: try-again
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: production
+  source:
+    repoURL: https://github.com/SimonTestCrossplane/try-again
+    targetRevision: HEAD
+    path: chart
+    helm:
+      releaseName: try-again
+      parameters:
+        - name: github.repository
+          value: try-again
+        - name: application.name
+          value: try-again
+        - name: application.host
+          value: try-again.acme.com
+        - name: hyperscaler
+          value: aws
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: infra
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+      allowEmpty: true
